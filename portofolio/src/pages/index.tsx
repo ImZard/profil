@@ -126,30 +126,30 @@ export default function Home() {
                 <div>
                   <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
                   <p className="text-xs text-gray-600">Lorem Ipsum</p>
-                  <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
-                    Detail
-                  </button>
                 </div>
+                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                  Detail
+                </button>
               </div>
               {/* Card 3 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
                   <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
                   <p className="text-xs text-gray-600">Lorem Ipsum</p>
-                  <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
-                    Detail
-                  </button>
                 </div>
+                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                  Detail
+                </button>
               </div>
               {/* Card 4 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
                   <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
                   <p className="text-xs text-gray-600">Lorem Ipsum</p>
-                  <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
-                    Detail
-                  </button>
                 </div>
+                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                  Detail
+                </button>
               </div>
             </>
           ) : (
@@ -158,25 +158,21 @@ export default function Home() {
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
                   <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
-                  <p className="text-xs text-gray-600">
-                    Deskripsi proyek pertama Anda di sini...
-                  </p>
-                  <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
-                    Detail
-                  </button>
+                  <p className="text-xs text-gray-600">Lorem Ipsum</p>
                 </div>
+                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                  Detail
+                </button>
               </div>
               {/* Card Project 2 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
                   <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
-                  <p className="text-xs text-gray-600">
-                    Deskripsi proyek kedua Anda di sini...
-                  </p>
-                  <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
-                    Detail
-                  </button>
+                  <p className="text-xs text-gray-600">Lorem Ipsum</p>
                 </div>
+                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                  Detail
+                </button>
               </div>
             </>
           )}
