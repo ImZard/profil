@@ -157,19 +157,25 @@ export default function Home() {
               {/* Card Project 1 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">Project 1</h3>
+                  <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
                   <p className="text-xs text-gray-600">
                     Deskripsi proyek pertama Anda di sini...
                   </p>
+                  <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                    Detail
+                  </button>
                 </div>
               </div>
               {/* Card Project 2 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">Project 2</h3>
+                  <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
                   <p className="text-xs text-gray-600">
                     Deskripsi proyek kedua Anda di sini...
                   </p>
+                  <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                    Detail
+                  </button>
                 </div>
               </div>
             </>
@@ -178,7 +184,7 @@ export default function Home() {
 
         {/* FOOTER */}
         <footer className="text-center pt-8 pb-4 border-t border-white/5 text-xs text-gray-500">
-          © {new Date().getFullYear()} Zaid. All Rights Reserved.
+          © {new Date().getFullYear()} Zard. All Rights Reserved.
         </footer>
       </div>
     </div>
