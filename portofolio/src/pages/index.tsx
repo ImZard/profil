@@ -114,8 +114,12 @@ export default function Home() {
               {/* Card 1 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
-                  <p className="text-xs text-gray-600">Lorem Ipsum</p>
+                  <h3 className="font-bold text-lg mb-2">
+                    UI/UX Designer Intern
+                  </h3>
+                  <p className="text-xs text-gray-600">
+                    Magang Pengabdian Kepada Masyarakat SMP Erenos
+                  </p>
                 </div>
                 <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
                   Detail
@@ -124,8 +128,13 @@ export default function Home() {
               {/* Card 2 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
-                  <p className="text-xs text-gray-600">Lorem Ipsum</p>
+                  <h3 className="font-bold text-lg mb-2">
+                    CAPI (Computer-Assisted Personal Interviewing) Assistant
+                    Intern
+                  </h3>
+                  <p className="text-xs text-gray-600">
+                    Badan Riset dan Inovasi Nasional (BRIN)
+                  </p>
                 </div>
                 <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
                   Detail
@@ -134,8 +143,12 @@ export default function Home() {
               {/* Card 3 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
-                  <p className="text-xs text-gray-600">Lorem Ipsum</p>
+                  <h3 className="font-bold text-lg mb-2">
+                    Asisten Biro Pendidikan
+                  </h3>
+                  <p className="text-xs text-gray-600">
+                    Universitas Pembangunan Jaya
+                  </p>
                 </div>
                 <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
                   Detail
@@ -144,8 +157,8 @@ export default function Home() {
               {/* Card 4 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
-                  <p className="text-xs text-gray-600">Lorem Ipsum</p>
+                  <h3 className="font-bold text-lg mb-2">QA Tester</h3>
+                  <p className="text-xs text-gray-600">PBSI South Jakarta</p>
                 </div>
                 <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
                   Detail
