@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   // State untuk tab aktif antara Work Experience dan Project
@@ -27,8 +28,7 @@ export default function Home() {
             {/* Teks */}
             <div className="flex flex-col pt-2">
               <h1 className="text-3xl md:text-4xl font-semibold text-white mb-6 leading-tight">
-                Zaidan Ersya <br />
-                Ramadhan
+                Zaidan Ersya Ramadhan
               </h1>
 
               <p className="text-sm md:text-base text-gray-300 leading-relaxed text-justify">
@@ -167,9 +167,12 @@ export default function Home() {
                     Magang Pengabdian Kepada Masyarakat SMP Erenos
                   </p>
                 </div>
-                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                <Link
+                  href="/work/smpErenos"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                >
                   Detail
-                </button>
+                </Link>
               </div>
               {/* Card 2 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
@@ -182,9 +185,12 @@ export default function Home() {
                     Badan Riset dan Inovasi Nasional (BRIN)
                   </p>
                 </div>
-                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                <Link
+                  href="/work/brin"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                >
                   Detail
-                </button>
+                </Link>
               </div>
               {/* Card 3 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
@@ -196,9 +202,12 @@ export default function Home() {
                     Universitas Pembangunan Jaya
                   </p>
                 </div>
-                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                <Link
+                  href="/work/upj"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                >
                   Detail
-                </button>
+                </Link>
               </div>
               {/* Card 4 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
@@ -206,9 +215,12 @@ export default function Home() {
                   <h3 className="font-bold text-lg mb-2">QA Tester</h3>
                   <p className="text-xs text-gray-600">PBSI South Jakarta</p>
                 </div>
-                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                <Link
+                  href="/work/pbsi"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                >
                   Detail
-                </button>
+                </Link>
               </div>
             </>
           ) : (
