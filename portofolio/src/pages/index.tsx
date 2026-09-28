@@ -228,12 +228,20 @@ export default function Home() {
               {/* Card Project 1 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
-                  <p className="text-xs text-gray-600">Lorem Ipsum</p>
+                  <h3 className="font-bold text-lg mb-2">
+                    PT. Redho Illahi Wisata
+                  </h3>
+                  <p className="text-xs text-gray-600">
+                    Website Developer (Pengembangan Aplikasi Web Sistem
+                    Informasi Administrasi Pendaftaran dan Pembayaran)
+                  </p>
                 </div>
-                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                <Link
+                  href="/project/redhoTours"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                >
                   Detail
-                </button>
+                </Link>
               </div>
               {/* Card Project 2 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
