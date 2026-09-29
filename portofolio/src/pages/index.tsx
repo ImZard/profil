@@ -1,27 +1,42 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Home() {
-  // State untuk tab aktif antara Work Experience dan Project
+  // State untuk tab aktif
   const [activeTab, setActiveTab] = useState<"experience" | "project">(
     "experience",
   );
 
+  // State untuk trigger animasi saat halaman dimuat
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // useEffect akan berjalan sekali saat komponen pertama kali dirender
+  useEffect(() => {
+    // Memberikan sedikit jeda agar transisi terlihat mulus
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#111115] flex flex-col items-center py-10 px-4 selection:bg-[#C6FF00] selection:text-black">
+    <div className="min-h-screen bg-[#111115] flex flex-col items-center py-10 px-4 selection:bg-[#C6FF00] selection:text-black overflow-hidden">
       {/* Container Utama */}
       <div className="w-full max-w-4xl flex flex-col gap-8">
         {/* SECTION ATAS: PROFIL & BIOGRAFI */}
-        <div className="w-full relative bg-[#111115] p-6 md:p-10 border border-white/5 shadow-xl rounded-2xl">
+        {/* Animasi Masuk: Muncul pertama */}
+        <div
+          className={`w-full relative bg-[#111115] p-6 md:p-10 border border-white/5 shadow-xl rounded-2xl group hover:border-white/10 
+          transform transition-all duration-1000 ease-out
+          ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+        >
           <div className="flex flex-col md:flex-row gap-6 md:gap-8">
             {/* Foto Profil */}
-            <div className="w-[200px] h-[240px] shrink-0 bg-white shadow-lg overflow-hidden flex items-center justify-center">
+            <div className="w-[200px] h-[240px] shrink-0 bg-white shadow-lg overflow-hidden flex items-center justify-center rounded-lg">
               <img
                 src="/profile.jpg"
                 alt="Zaidan Ersya Ramadhan"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
             </div>
 
@@ -46,7 +61,12 @@ export default function Home() {
         </div>
 
         {/* SECTION CONNECT WITH ME */}
-        <div className="bg-[#1B1B22] px-8 py-6 rounded-2xl border border-white/5 flex flex-col items-center gap-4 shadow-lg">
+        {/* Animasi Masuk: Muncul kedua (delay-200) */}
+        <div
+          className={`bg-[#1B1B22] px-8 py-6 rounded-2xl border border-white/5 flex flex-col items-center gap-4 shadow-lg 
+          transform transition-all duration-1000 delay-200 ease-out
+          ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+        >
           <span className="text-sm md:text-base font-semibold tracking-wider text-gray-300 text-center">
             Connect With Me :
           </span>
@@ -56,7 +76,7 @@ export default function Home() {
               href="https://www.instagram.com/zard_90/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-white/5 hover:bg-white/10 rounded-xl transition text-white flex items-center justify-center"
+              className="p-3 bg-white/5 hover:bg-[#C6FF00]/10 hover:text-[#C6FF00] hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_5px_15px_rgba(198,255,0,0.15)] rounded-xl transition-all duration-300 text-white flex items-center justify-center"
               aria-label="Instagram"
             >
               <svg
@@ -77,10 +97,10 @@ export default function Home() {
 
             {/* LinkedIn */}
             <a
-              href="https://www.linkedin.com/in/zaidanersya/"
+              href="https://www.linkedin.com/in/zaidan-ersya-ramadhan-664a77279/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-white/5 hover:bg-white/10 rounded-xl transition text-white flex items-center justify-center"
+              className="p-3 bg-white/5 hover:bg-[#C6FF00]/10 hover:text-[#C6FF00] hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_5px_15px_rgba(198,255,0,0.15)] rounded-xl transition-all duration-300 text-white flex items-center justify-center"
               aria-label="LinkedIn"
             >
               <svg
@@ -101,10 +121,10 @@ export default function Home() {
 
             {/* GitHub */}
             <a
-              href="https://github.com/username-anda"
+              href="https://github.com/ImZard"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-white/5 hover:bg-white/10 rounded-xl transition text-white flex items-center justify-center"
+              className="p-3 bg-white/5 hover:bg-[#C6FF00]/10 hover:text-[#C6FF00] hover:-translate-y-1.5 hover:scale-110 hover:shadow-[0_5px_15px_rgba(198,255,0,0.15)] rounded-xl transition-all duration-300 text-white flex items-center justify-center"
               aria-label="GitHub"
             >
               <svg
@@ -123,15 +143,20 @@ export default function Home() {
           </div>
         </div>
 
-        {/* TAB SWITCHER*/}
-        <div className="flex items-center gap-1 mb-2 mt-2">
+        {/* TAB SWITCHER */}
+        {/* Animasi Masuk: Muncul ketiga (delay-500) */}
+        <div
+          className={`flex items-center gap-1 mb-2 mt-2 
+          transform transition-all duration-1000 delay-500 ease-out
+          ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
           {/* Tombol Work Experience */}
           <button
             onClick={() => setActiveTab("experience")}
-            className={`px-3 py-1 text-base md:text-lg font-bold rounded-md transition-all duration-200 ${
+            className={`px-3 py-1 text-base md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
               activeTab === "experience"
-                ? "bg-[#C6FF00] text-[#141419]" // Background hijau, teks gelap saat aktif
-                : "text-gray-400 hover:text-white bg-transparent" // Tanpa background saat tidak aktif
+                ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
+                : "text-gray-400 hover:text-white bg-transparent"
             }`}
           >
             Work Experience
@@ -143,10 +168,10 @@ export default function Home() {
           {/* Tombol Project */}
           <button
             onClick={() => setActiveTab("project")}
-            className={`px-3 py-1 text-base md:text-lg font-bold rounded-md transition-all duration-200 ${
+            className={`px-3 py-1 text-base md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
               activeTab === "project"
-                ? "bg-[#C6FF00] text-[#141419]" // Background hijau, teks gelap saat aktif
-                : "text-gray-400 hover:text-white bg-transparent" // Tanpa background saat tidak aktif
+                ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
+                : "text-gray-400 hover:text-white bg-transparent"
             }`}
           >
             Project
@@ -154,70 +179,111 @@ export default function Home() {
         </div>
 
         {/* SECTION GRID KONTEN (Kotak Putih) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Animasi Masuk: Muncul terakhir (delay-700) */}
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 gap-6 
+          transform transition-all duration-1000 delay-700 ease-out
+          ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+        >
           {activeTab === "experience" ? (
             <>
               {/* Card 1 */}
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     UI/UX Designer Intern
                   </h3>
-                  <p className="text-xs text-gray-600">
+                  <p className="font-bold text-xs text-gray-600">
                     Magang Pengabdian Kepada Masyarakat SMP Erenos
+                  </p>
+                  <p className="text-xs text-gray-600 mb-4">
+                    Feb 2024 - Oct 2024
+                  </p>
+
+                  <p className="text-xs text-gray-600">
+                    Key Skills: Figma, UI/UX Design
                   </p>
                 </div>
                 <Link
                   href="/work/smpErenos"
-                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
                 >
                   Detail
                 </Link>
               </div>
+
               {/* Card 2 */}
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     CAPI (Computer-Assisted Personal Interviewing) Assistant
                     Intern
                   </h3>
-                  <p className="text-xs text-gray-600">
+                  <p className="font-bold text-xs text-gray-600">
                     Badan Riset dan Inovasi Nasional (BRIN)
+                  </p>
+                  <p className="text-xs text-gray-600 mb-4">
+                    Apr 2024 - Jun 2024
+                  </p>
+
+                  <p className="text-xs text-gray-600">
+                    Key Skills: Communication, System Administration, Helpdesk
                   </p>
                 </div>
                 <Link
                   href="/work/brin"
-                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
                 >
                   Detail
                 </Link>
               </div>
+
               {/* Card 3 */}
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     Asisten Biro Pendidikan
                   </h3>
-                  <p className="text-xs text-gray-600">
+                  <p className="font-bold text-xs text-gray-600">
                     Universitas Pembangunan Jaya
+                  </p>
+                  <p className="text-xs text-gray-600 mb-4">
+                    Jul 2024 - Sep 2024
+                  </p>
+
+                  <p className="text-xs text-gray-600">
+                    Key Skills: Administration
                   </p>
                 </div>
                 <Link
                   href="/work/upj"
-                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
                 >
                   Detail
                 </Link>
               </div>
+
               {/* Card 4 */}
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">QA Tester</h3>
-                  <p className="text-xs text-gray-600">PBSI South Jakarta</p>
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
+                    QA Tester
+                  </h3>
+                  <p className="font-bold text-xs text-gray-600">
+                    PBSI South Jakarta
+                  </p>
+                  <p className="text-xs text-gray-600 mb-4">
+                    May 2025 - Aug 2025
+                  </p>
+
+                  <p className="text-xs text-gray-600">
+                    Key Skills: Automated Testing, Manual Testing, Test Case
+                    Design
+                  </p>
                 </div>
                 <Link
                   href="/work/pbsi"
-                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
                 >
                   Detail
                 </Link>
@@ -226,9 +292,9 @@ export default function Home() {
           ) : (
             <>
               {/* Card Project 1 */}
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     PT. Redho Illahi Wisata
                   </h3>
                   <p className="text-xs text-gray-600">
@@ -238,18 +304,21 @@ export default function Home() {
                 </div>
                 <Link
                   href="/project/redhoTours"
-                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors inline-block text-center font-medium"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
                 >
                   Detail
                 </Link>
               </div>
+
               {/* Card Project 2 */}
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
-                  <h3 className="font-bold text-lg mb-2">Lorem Ipsum</h3>
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
+                    Lorem Ipsum
+                  </h3>
                   <p className="text-xs text-gray-600">Lorem Ipsum</p>
                 </div>
-                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] transition-colors">
+                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold">
                   Detail
                 </button>
               </div>
@@ -258,7 +327,11 @@ export default function Home() {
         </div>
 
         {/* FOOTER */}
-        <footer className="text-center pt-8 pb-4 border-t border-white/5 text-xs text-gray-500">
+        <footer
+          className={`text-center pt-8 pb-4 border-t border-white/5 text-xs text-gray-500
+          transform transition-all duration-1000 delay-1000 ease-out
+          ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        >
           © {new Date().getFullYear()} Zard. All Rights Reserved.
         </footer>
       </div>
