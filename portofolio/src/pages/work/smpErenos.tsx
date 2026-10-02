@@ -11,7 +11,7 @@ export default function SmpErenos() {
         Detail Magang Pengabdian Kepada Masyarakat SMP Erenos.
       </p>
 
-      {/* deskripsi pekerjaan */}
+      {/* Deskripsi Pekerjaan */}
       <div className="bg-white/10 p-6 rounded-lg mb-8">
         <h2 className="text-xl font-bold mb-4">Deskripsi Pekerjaan</h2>
         <p className="text-gray-300">
@@ -24,6 +24,16 @@ export default function SmpErenos() {
           <li>Menyusun wireframe dan prototipe untuk iterasi desain.</li>
           <li>Bekerja sama dengan tim pengembang untuk menerapkan desain.</li>
         </ul>
+        <br />
+        <p className="text-gray-300">
+          Link Desain Figma :{" "}
+          <a
+            href="https://www.figma.com/design/WeegIjYbqlQu9rg3hpHYih/UI-Erenos?node-id=66-2103&p=f&t=BNVmjcGJ3UcKcVkS-0"
+            className="text-blue-500 hover:underline"
+          >
+            https://www.figma.com/design/WeegIjYbqlQu9rg3hpHYih/UI-Erenos?node-id=66-2103&p=f&t=BNVmjcGJ3UcKcVkS-0
+          </a>
+        </p>
       </div>
 
       {/* Tombol kembali ke halaman utama */}

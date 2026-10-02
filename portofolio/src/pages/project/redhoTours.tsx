@@ -28,6 +28,16 @@ export default function RedhoTours() {
             (PostgreSQL) mencakup perancangan frontend dan back-end
           </li>
         </ul>
+        <br />
+        <p className="text-gray-300">
+          Link Website :{" "}
+          <a
+            href="https://redhotours.vercel.app/"
+            className="text-blue-500 hover:underline"
+          >
+            https://redhotours.vercel.app/
+          </a>
+        </p>
       </div>
 
       {/* Tombol kembali ke halaman utama */}
