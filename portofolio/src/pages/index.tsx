@@ -348,6 +348,11 @@ export default function Home() {
                     Website Developer (Pengembangan Aplikasi Web Sistem
                     Informasi Administrasi Pendaftaran dan Pembayaran)
                   </p>
+                  <br />
+                  <p className="text-xs text-gray-600">
+                    Key Skills: Requirements Analysis, System Analyst, Web
+                    Development, UI/UX Design, Next.js, Supabase (PostgreSQL)
+                  </p>
                 </div>
                 <Link
                   href="/project/redhoTours"
