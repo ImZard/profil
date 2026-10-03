@@ -60,6 +60,53 @@ export default function Home() {
           </div>
         </div>
 
+        {/* SECTION MY SKILLS */}
+        {/* Animasi Masuk: Muncul (delay-300) */}
+        <div
+          className={`bg-[#1B1B22] px-6 py-6 md:px-8 rounded-2xl border border-white/5 flex flex-col gap-4 shadow-lg 
+          transform transition-all duration-1000 delay-300 ease-out
+          ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+        >
+          <span className="text-lg md:text-xl font-bold tracking-wider text-white text-center border-b border-white/10 pb-4">
+            My Skills
+          </span>
+
+          <div className="bg-[#141419] border border-white/10 rounded-xl p-5 md:p-6">
+            <ul className="list-disc list-outside ml-5 text-gray-300 space-y-3 md:space-y-4 text-sm md:text-base leading-relaxed text-justify break-words whitespace-normal">
+              <li>
+                <span className="font-semibold text-white">
+                  IT Support & Infrastructure :
+                </span>{" "}
+                Hardware/Software Maintenance, Troubleshooting, User Support
+              </li>
+              <li>
+                <span className="font-semibold text-white">
+                  Web & System Development :
+                </span>{" "}
+                HTML, CSS, PHP, Javascript, Next.js, Python
+              </li>
+              <li>
+                <span className="font-semibold text-white">
+                  QA Testing & Software :
+                </span>{" "}
+                Manul Testing, Automated Testing, Test Case Design, Selenium
+              </li>
+              <li>
+                <span className="font-semibold text-white">
+                  Database & Administration :
+                </span>{" "}
+                SQL, PostgreSQL, Ms. Excel, Ms. Office
+              </li>
+              <li>
+                <span className="font-semibold text-white">
+                  Data Analytics & Design :
+                </span>{" "}
+                Tableau, Looker Studio, Figma, Canva
+              </li>
+            </ul>
+          </div>
+        </div>
+
         {/* SECTION CONNECT WITH ME */}
         {/* Animasi Masuk: Muncul kedua (delay-200) */}
         <div
