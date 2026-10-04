@@ -366,13 +366,41 @@ export default function Home() {
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
-                    Lorem Ipsum
+                    Pengembangan Aplikasi Web Sistem Manajemen Pemesanan
+                    Katering
                   </h3>
-                  <p className="text-xs text-gray-600">Lorem Ipsum</p>
+                  <br />
+                  <p className="text-xs text-gray-600">
+                    Key Skills: Requirements Analysis, System Analyst, Web
+                    Development, UI/UX Design, PHP, MySQL, Bootstrap
+                  </p>
                 </div>
-                <button className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold">
+                <Link
+                  href="/project/katering"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
+                >
                   Detail
-                </button>
+                </Link>
+              </div>
+
+              {/* Card Project 3 */}
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+                <div>
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
+                    Front-End Developer (Pengembangan Prototype Platform Edukasi
+                    Digital Virtu-Edu)
+                  </h3>
+                  <br />
+                  <p className="text-xs text-gray-600">
+                    Key Skills: Front-End Development, UI/UX Design, HTML, CSS,
+                  </p>
+                </div>
+                <Link
+                  href="/project/virtuedu"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
+                >
+                  Detail
+                </Link>
               </div>
             </>
           )}

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-export default function RedhoTours() {
+export default function Katering() {
   // State untuk menyimpan URL gambar yang sedang di-fullscreen
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
@@ -11,11 +11,12 @@ export default function RedhoTours() {
     <div className="min-h-screen bg-[#111115] text-white p-6 md:p-10 flex flex-col items-center selection:bg-[#C6FF00] selection:text-black relative">
       {/* Judul Halaman */}
       <h1 className="text-2xl md:text-3xl font-bold mb-2 text-[#C6FF00] text-center max-w-4xl mt-4 md:mt-10">
-        Website Developer (Pengembangan Aplikasi Web Sistem Informasi
-        Administrasi Pendaftaran dan Pembayaran)
+        Website Developer (Pengembangan Project Tugas Sistem Manajemen
+        Pendaftaran dan Pembayaran Katering)
       </h1>
       <p className="text-gray-300 mb-8 text-center">
-        Detail Pembuatan Project PT. Redho Illahi Wisata.
+        Detail Pembuatan Project Tugas Kuliah Sistem Manajemen Pendaftaran dan
+        Pembayaran Katering.
       </p>
 
       {/* CONTAINER UTAMA - Kunci agar lebar box dan gambar SAMA PERSIS */}
@@ -31,32 +32,29 @@ export default function RedhoTours() {
           </p>
 
           <ul className="list-disc list-outside ml-5 text-gray-300 mt-4 mb-8 space-y-2 leading-relaxed text-justify break-words whitespace-normal">
-            <li>
-              Menganalisis kebutuhan bisnis (business requirements) untuk
-              memastikan solusi sistem memenuhi ekspektasi dan target
-              penyelesaian operasional.
-            </li>
+            <li>Analisa Kebutuhan (Elisitasi).</li>
             <li>
               System Analyst(Use Case Diagram, Class Diagram, Sequence Diagram,
               Activity Diagram).
             </li>
             <li>
-              Mengembangkan aplikasi web menggunakan Next.Js dan Supabase
-              (PostgreSQL) mencakup perancangan frontend dan back-end.
+              Mengembangkan Aplikasi Web menggunakan PHP Native dan MySQL dengan
+              implementasi fitur autentikasi, pemesanan katering, manajemen
+              paket/menu, pengelolaan pesanan, dan laporan pemesanan.
             </li>
           </ul>
 
           {/* Bagian Link Website yang dirapikan */}
           <div className="pt-4 border-t border-white/10">
             <p className="text-gray-300">
-              Link Website :{" "}
+              Link Github :{" "}
               <a
-                href="https://redhotours.vercel.app/"
+                href="https://github.com/ImZard/food-catering"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#C6FF00] hover:underline font-medium transition-colors"
               >
-                https://redhotours.vercel.app/
+                https://github.com/ImZard/food-catering
               </a>
             </p>
           </div>
@@ -68,13 +66,13 @@ export default function RedhoTours() {
           <div
             className="w-full h-72 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#141419] group flex items-center justify-center relative cursor-zoom-in"
             onClick={() =>
-              setFullscreenImage("https://i.ibb.co.com/rGbkBkHD/porto.png")
+              setFullscreenImage("https://i.ibb.co.com/qYDsnRHL/frame-22.png")
             }
           >
             <span className="text-gray-500 absolute">Gambar Dokumentasi 1</span>
             <img
-              src="https://i.ibb.co.com/rGbkBkHD/porto.png"
-              alt="Dokumentasi Redho Tours 1"
+              src="https://i.ibb.co.com/qYDsnRHL/frame-22.png"
+              alt="Dokumentasi 1"
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out relative z-10"
             />
           </div>
@@ -83,15 +81,13 @@ export default function RedhoTours() {
           <div
             className="w-full h-72 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#141419] group flex items-center justify-center relative cursor-zoom-in"
             onClick={() =>
-              setFullscreenImage(
-                "https://i.ibb.co.com/qLY9kCsk/Screenshot-2026-05-18-194046.png",
-              )
+              setFullscreenImage("https://i.ibb.co.com/TxyRQVfb/Frame-1-1.png")
             }
           >
             <span className="text-gray-500 absolute">Gambar Dokumentasi 2</span>
             <img
-              src="https://i.ibb.co.com/qLY9kCsk/Screenshot-2026-05-18-194046.png"
-              alt="Dokumentasi Redho Tours 2"
+              src="https://i.ibb.co.com/TxyRQVfb/Frame-1-1.png"
+              alt="Dokumentasi 2"
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out relative z-10"
             />
           </div>
