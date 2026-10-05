@@ -40,14 +40,14 @@ export default function Home() {
                 Zaidan Ersya Ramadhan
               </h1>
               <p className="text-sm md:text-base text-gray-300 leading-relaxed text-justify">
-                "Information Systems graduate from Universitas Pembangunan Jaya.
-                Throughout my academic journey, I have gained practical
+                &quot;Information Systems graduate from Universitas Pembangunan
+                Jaya. Throughout my academic journey, I have gained practical
                 experience in web development, front-end development, UI/UX
                 design, and Software Quality Assurance testing, shaped by both
                 the professional dynamics of internships and the technical
                 challenges of university projects. Driven by a strong curiosity
                 and a high enthusiasm for technological innovation, I am always
-                ready to adapt and grow in a dynamic industry environment."
+                ready to adapt and grow in a dynamic industry environment.&quot;
               </p>
             </div>
           </div>

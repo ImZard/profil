@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-export default function dataVisual() {
+export default function DataVisual() {
   // State untuk menyimpan URL gambar yang sedang di-fullscreen
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
