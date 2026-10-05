@@ -101,7 +101,7 @@ export default function Home() {
                 <span className="font-semibold text-white">
                   Data Analytics & Design :
                 </span>{" "}
-                Tableau, Looker Studio, Figma, Canva
+                Tableau, Looker Studio(Google Data Studio), Figma, Canva
               </li>
             </ul>
           </div>
@@ -392,11 +392,31 @@ export default function Home() {
                   </h3>
                   <br />
                   <p className="text-xs text-gray-600">
-                    Key Skills: Front-End Development, UI/UX Design, HTML, CSS,
+                    Key Skills: Front-End Development, UI/UX Design, HTML, CSS
                   </p>
                 </div>
                 <Link
                   href="/project/virtuedu"
+                  className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
+                >
+                  Detail
+                </Link>
+              </div>
+
+              {/* Card Project 4 */}
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+                <div>
+                  <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
+                    Data Visualization (Everest Data Exploration)
+                  </h3>
+                  <br />
+                  <p className="text-xs text-gray-600">
+                    Key Skills: Data Analytics, Data Visualization, Looker
+                    Studio (Google Data Studio)
+                  </p>
+                </div>
+                <Link
+                  href="/project/dataVisual"
                   className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
                 >
                   Detail
