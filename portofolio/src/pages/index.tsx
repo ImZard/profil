@@ -4,34 +4,30 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Home() {
-  // State untuk tab aktif
-  const [activeTab, setActiveTab] = useState<"experience" | "project">(
-    "experience",
-  );
+  const [activeTab, setActiveTab] = useState<
+    "experience" | "project" | "certification"
+  >("experience");
 
-  // State untuk trigger animasi saat halaman dimuat
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // useEffect akan berjalan sekali saat komponen pertama kali dirender
+  // 1. UPDATE: Tambahkan state untuk gambar fullscreen
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+
   useEffect(() => {
-    // Memberikan sedikit jeda agar transisi terlihat mulus
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#111115] flex flex-col items-center py-10 px-4 selection:bg-[#C6FF00] selection:text-black overflow-hidden">
-      {/* Container Utama */}
+    <div className="min-h-screen bg-[#111115] flex flex-col items-center py-10 px-4 selection:bg-[#C6FF00] selection:text-black overflow-hidden relative">
       <div className="w-full max-w-4xl flex flex-col gap-8">
         {/* SECTION ATAS: PROFIL & BIOGRAFI */}
-        {/* Animasi Masuk: Muncul pertama */}
         <div
           className={`w-full relative bg-[#111115] p-6 md:p-10 border border-white/5 shadow-xl rounded-2xl group hover:border-white/10 
           transform transition-all duration-1000 ease-out
           ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
         >
           <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-            {/* Foto Profil */}
             <div className="w-[200px] h-[240px] shrink-0 bg-white shadow-lg overflow-hidden flex items-center justify-center rounded-lg">
               <img
                 src="/profile.jpg"
@@ -39,13 +35,10 @@ export default function Home() {
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
             </div>
-
-            {/* Teks */}
             <div className="flex flex-col pt-2">
               <h1 className="text-3xl md:text-4xl font-semibold text-white mb-6 leading-tight">
                 Zaidan Ersya Ramadhan
               </h1>
-
               <p className="text-sm md:text-base text-gray-300 leading-relaxed text-justify">
                 "Information Systems graduate from Universitas Pembangunan Jaya.
                 Throughout my academic journey, I have gained practical
@@ -61,7 +54,6 @@ export default function Home() {
         </div>
 
         {/* SECTION MY SKILLS */}
-        {/* Animasi Masuk: Muncul (delay-300) */}
         <div
           className={`bg-[#1B1B22] px-6 py-6 md:px-8 rounded-2xl border border-white/5 flex flex-col gap-4 shadow-lg 
           transform transition-all duration-1000 delay-300 ease-out
@@ -70,7 +62,6 @@ export default function Home() {
           <span className="text-lg md:text-xl font-bold tracking-wider text-white text-center border-b border-white/10 pb-4">
             My Skills
           </span>
-
           <div className="bg-[#141419] border border-white/10 rounded-xl p-5 md:p-6">
             <ul className="list-disc list-outside ml-5 text-gray-300 space-y-3 md:space-y-4 text-sm md:text-base leading-relaxed text-justify break-words whitespace-normal">
               <li>
@@ -89,7 +80,7 @@ export default function Home() {
                 <span className="font-semibold text-white">
                   QA Testing & Software :
                 </span>{" "}
-                Manul Testing, Automated Testing, Test Case Design, Selenium
+                Manual Testing, Automated Testing, Test Case Design, Selenium
               </li>
               <li>
                 <span className="font-semibold text-white">
@@ -101,14 +92,13 @@ export default function Home() {
                 <span className="font-semibold text-white">
                   Data Analytics & Design :
                 </span>{" "}
-                Tableau, Looker Studio(Google Data Studio), Figma, Canva
+                Tableau, Looker Studio, Figma, Canva
               </li>
             </ul>
           </div>
         </div>
 
         {/* SECTION CONNECT WITH ME */}
-        {/* Animasi Masuk: Muncul kedua (delay-200) */}
         <div
           className={`bg-[#1B1B22] px-8 py-6 rounded-2xl border border-white/5 flex flex-col items-center gap-4 shadow-lg 
           transform transition-all duration-1000 delay-200 ease-out
@@ -118,7 +108,6 @@ export default function Home() {
             Connect With Me :
           </span>
           <div className="w-full flex items-center justify-center gap-8 bg-[#141419] border border-white/10 rounded-xl px-4 py-4">
-            {/* Instagram */}
             <a
               href="https://www.instagram.com/zard_90/"
               target="_blank"
@@ -141,8 +130,6 @@ export default function Home() {
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
               </svg>
             </a>
-
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/zaidan-ersya-ramadhan-664a77279/"
               target="_blank"
@@ -165,8 +152,6 @@ export default function Home() {
                 <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
-
-            {/* GitHub */}
             <a
               href="https://github.com/ImZard"
               target="_blank"
@@ -191,16 +176,14 @@ export default function Home() {
         </div>
 
         {/* TAB SWITCHER */}
-        {/* Animasi Masuk: Muncul ketiga (delay-500) */}
         <div
-          className={`flex items-center gap-1 mb-2 mt-2 
+          className={`flex flex-wrap items-center justify-center gap-1 md:gap-2 mb-2 mt-2 
           transform transition-all duration-1000 delay-500 ease-out
           ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          {/* Tombol Work Experience */}
           <button
             onClick={() => setActiveTab("experience")}
-            className={`px-3 py-1 text-base md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+            className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
               activeTab === "experience"
                 ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
                 : "text-gray-400 hover:text-white bg-transparent"
@@ -209,13 +192,11 @@ export default function Home() {
             Work Experience
           </button>
 
-          {/* Garis Pembatas Vertikal (Separator) */}
-          <div className="w-[2px] h-6 bg-gray-500 mx-1 md:mx-2 rounded-full"></div>
+          <div className="w-[2px] h-4 md:h-6 bg-gray-500 mx-1 rounded-full"></div>
 
-          {/* Tombol Project */}
           <button
             onClick={() => setActiveTab("project")}
-            className={`px-3 py-1 text-base md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+            className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
               activeTab === "project"
                 ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
                 : "text-gray-400 hover:text-white bg-transparent"
@@ -223,18 +204,30 @@ export default function Home() {
           >
             Project
           </button>
+
+          <div className="w-[2px] h-4 md:h-6 bg-gray-500 mx-1 rounded-full"></div>
+
+          <button
+            onClick={() => setActiveTab("certification")}
+            className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+              activeTab === "certification"
+                ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
+                : "text-gray-400 hover:text-white bg-transparent"
+            }`}
+          >
+            Certification
+          </button>
         </div>
 
-        {/* SECTION GRID KONTEN (Kotak Putih) */}
-        {/* Animasi Masuk: Muncul terakhir (delay-700) */}
+        {/* SECTION GRID KONTEN */}
         <div
           className={`grid grid-cols-1 md:grid-cols-2 gap-6 
           transform transition-all duration-1000 delay-700 ease-out
           ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
         >
-          {activeTab === "experience" ? (
+          {/* --- KONTEN: WORK EXPERIENCE --- */}
+          {activeTab === "experience" && (
             <>
-              {/* Card 1 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
@@ -246,7 +239,6 @@ export default function Home() {
                   <p className="text-xs text-gray-600 mb-4">
                     Feb 2024 - Oct 2024
                   </p>
-
                   <p className="text-xs text-gray-600">
                     Key Skills: Figma, UI/UX Design
                   </p>
@@ -259,7 +251,6 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Card 2 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
@@ -272,7 +263,6 @@ export default function Home() {
                   <p className="text-xs text-gray-600 mb-4">
                     Apr 2024 - Jun 2024
                   </p>
-
                   <p className="text-xs text-gray-600">
                     Key Skills: Communication, System Administration, Helpdesk
                   </p>
@@ -285,7 +275,6 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Card 3 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
@@ -297,7 +286,6 @@ export default function Home() {
                   <p className="text-xs text-gray-600 mb-4">
                     Jul 2024 - Sep 2024
                   </p>
-
                   <p className="text-xs text-gray-600">
                     Key Skills: Administration
                   </p>
@@ -310,7 +298,6 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Card 4 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
@@ -322,7 +309,6 @@ export default function Home() {
                   <p className="text-xs text-gray-600 mb-4">
                     May 2025 - Aug 2025
                   </p>
-
                   <p className="text-xs text-gray-600">
                     Key Skills: Automated Testing, Manual Testing, Test Case
                     Design
@@ -336,9 +322,11 @@ export default function Home() {
                 </Link>
               </div>
             </>
-          ) : (
+          )}
+
+          {/* --- KONTEN: PROJECT --- */}
+          {activeTab === "project" && (
             <>
-              {/* Card Project 1 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
@@ -362,7 +350,6 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Card Project 2 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
@@ -383,7 +370,6 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Card Project 3 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
@@ -403,7 +389,6 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Card Project 4 */}
               <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
@@ -424,6 +409,85 @@ export default function Home() {
               </div>
             </>
           )}
+
+          {/* --- KONTEN: SERTIFIKASI --- */}
+          {activeTab === "certification" && (
+            <>
+              {/* Card Sertifikasi 1 */}
+              <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+                {/* 2. UPDATE: Tambahkan cursor-zoom-in dan onClick pada container gambar */}
+                <div
+                  className="w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-gray-100 border border-gray-200 cursor-zoom-in relative"
+                  onClick={() =>
+                    setFullscreenImage(
+                      "https://i.ibb.co.com/1fFNcqjF/englishscore-certificate-6b158727-page-0001.jpg",
+                    )
+                  }
+                >
+                  <img
+                    src="https://i.ibb.co.com/1fFNcqjF/englishscore-certificate-6b158727-page-0001.jpg"
+                    alt="Sertifikat 1"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 relative z-10"
+                  />
+                </div>
+                <h3 className="font-bold text-lg group-hover:text-[#8cb800] transition-colors duration-300 text-center leading-tight">
+                  British Council EnglishScore Certificate
+                </h3>
+                <p className="text-xs text-gray-600 text-center mt-2 font-medium">
+                  Score: 489 (CEFR B2)
+                </p>
+              </div>
+
+              {/* Card Sertifikasi 2 */}
+              <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+                {/* Tambahkan cursor-zoom-in dan onClick pada container gambar */}
+                <div
+                  className="w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-gray-100 border border-gray-200 cursor-zoom-in relative"
+                  onClick={() =>
+                    setFullscreenImage(
+                      "https://i.ibb.co.com/G3GWjF7N/DAMC-zaidanersya90gmail-com-DAMC-170826-01-1-00229-page-0001.jpg",
+                    )
+                  }
+                >
+                  <img
+                    src="https://i.ibb.co.com/G3GWjF7N/DAMC-zaidanersya90gmail-com-DAMC-170826-01-1-00229-page-0001.jpg"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 relative z-10"
+                  />
+                </div>
+                <h3 className="font-bold text-lg group-hover:text-[#8cb800] transition-colors duration-300 text-center leading-tight">
+                  Mini Course: Introduction to Data Analytics
+                </h3>
+                <p className="text-xs text-gray-600 text-center mt-2 font-medium">
+                  RevoU • 2026
+                </p>
+              </div>
+
+              {/* Card Sertifikasi 3 */}
+              <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+                {/* Tambahkan cursor-zoom-in dan onClick pada container gambar */}
+                <div
+                  className="w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-gray-100 border border-gray-200 cursor-zoom-in relative"
+                  onClick={() =>
+                    setFullscreenImage(
+                      "https://i.ibb.co.com/CKxBmCsV/Zaidan-Ersya-Ramadhan.jpg",
+                    )
+                  }
+                >
+                  <img
+                    src="https://i.ibb.co.com/CKxBmCsV/Zaidan-Ersya-Ramadhan.jpg"
+                    alt="Sertifikat 3"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 relative z-10"
+                  />
+                </div>
+                <h3 className="font-bold text-lg group-hover:text-[#8cb800] transition-colors duration-300 text-center leading-tight">
+                  UI/UX Mentoring
+                </h3>
+                <p className="text-xs text-gray-600 text-center mt-2 font-medium">
+                  Google Developer Student Clubs ITS (GDSC ITS) • 2023
+                </p>
+              </div>
+            </>
+          )}
         </div>
 
         {/* FOOTER */}
@@ -435,6 +499,39 @@ export default function Home() {
           © {new Date().getFullYear()} Zard. All Rights Reserved.
         </footer>
       </div>
+
+      {/* 3. UPDATE: MODAL FULLSCREEN IMAGE (POPUP) */}
+      {fullscreenImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-zoom-out backdrop-blur-sm"
+          onClick={() => setFullscreenImage(null)}
+        >
+          <button
+            className="absolute top-6 right-6 md:top-10 md:right-10 text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors z-50"
+            onClick={() => setFullscreenImage(null)}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+
+          <img
+            src={fullscreenImage}
+            alt="Fullscreen Sertifikat"
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+          />
+        </div>
+      )}
     </div>
   );
 }

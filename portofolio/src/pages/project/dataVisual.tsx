@@ -31,10 +31,8 @@ export default function dataVisual() {
           </p>
 
           <ul className="list-disc list-outside ml-5 text-gray-300 mt-4 mb-8 space-y-2 leading-relaxed text-justify break-words whitespace-normal">
-            <li>
-              Melakukan analisa data dan visualisasi menggunakan Looker Studio
-              (Google Data Studio).
-            </li>
+            <li>Melakukan analisa data</li>
+            <li>Visualisasi menggunakan Looker Studio (Google Data Studio).</li>
           </ul>
 
           {/* Bagian Link Website yang dirapikan */}
