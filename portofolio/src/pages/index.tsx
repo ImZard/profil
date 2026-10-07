@@ -3,6 +3,13 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
+// 1. UPDATE: Daftar urutan tab untuk navigasi tombol Next/Prev
+const TABS: ("experience" | "project" | "certification")[] = [
+  "experience",
+  "project",
+  "certification",
+];
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState<
     "experience" | "project" | "certification"
@@ -10,13 +17,27 @@ export default function Home() {
 
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // 1. UPDATE: Tambahkan state untuk gambar fullscreen
+  // State untuk gambar fullscreen
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  // 2. UPDATE: Fungsi untuk tombol panah KIRI (Previous)
+  const handlePrevTab = () => {
+    const currentIndex = TABS.indexOf(activeTab);
+    const prevIndex = currentIndex === 0 ? TABS.length - 1 : currentIndex - 1;
+    setActiveTab(TABS[prevIndex]);
+  };
+
+  // 3. UPDATE: Fungsi untuk tombol panah KANAN (Next)
+  const handleNextTab = () => {
+    const currentIndex = TABS.indexOf(activeTab);
+    const nextIndex = currentIndex === TABS.length - 1 ? 0 : currentIndex + 1;
+    setActiveTab(TABS[nextIndex]);
+  };
 
   return (
     <div className="min-h-screen bg-[#111115] flex flex-col items-center py-10 px-4 selection:bg-[#C6FF00] selection:text-black overflow-hidden relative">
@@ -175,47 +196,90 @@ export default function Home() {
           </div>
         </div>
 
-        {/* TAB SWITCHER */}
+        {/* 4. UPDATE: TAB SWITCHER DENGAN TOMBOL PANAH KIRI & KANAN */}
         <div
-          className={`flex flex-wrap items-center justify-center gap-1 md:gap-2 mb-2 mt-2 
+          className={`flex items-center justify-center gap-2 md:gap-4 mb-2 mt-2 
           transform transition-all duration-1000 delay-500 ease-out
           ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
+          {/* Tombol Panah Kiri */}
           <button
-            onClick={() => setActiveTab("experience")}
-            className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
-              activeTab === "experience"
-                ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
-                : "text-gray-400 hover:text-white bg-transparent"
-            }`}
+            onClick={handlePrevTab}
+            className="p-2 text-gray-500 hover:text-[#C6FF00] bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 focus:outline-none"
+            aria-label="Previous Tab"
           >
-            Work Experience
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
           </button>
 
-          <div className="w-[2px] h-4 md:h-6 bg-gray-500 mx-1 rounded-full"></div>
+          {/* Area Tombol Tab */}
+          <div className="flex flex-wrap items-center justify-center gap-1 md:gap-2">
+            <button
+              onClick={() => setActiveTab("experience")}
+              className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+                activeTab === "experience"
+                  ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
+                  : "text-gray-400 hover:text-white bg-transparent"
+              }`}
+            >
+              Work Experience
+            </button>
 
+            <div className="w-[2px] h-4 md:h-6 bg-gray-500 mx-1 rounded-full"></div>
+
+            <button
+              onClick={() => setActiveTab("project")}
+              className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+                activeTab === "project"
+                  ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
+                  : "text-gray-400 hover:text-white bg-transparent"
+              }`}
+            >
+              Project
+            </button>
+
+            <div className="w-[2px] h-4 md:h-6 bg-gray-500 mx-1 rounded-full"></div>
+
+            <button
+              onClick={() => setActiveTab("certification")}
+              className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+                activeTab === "certification"
+                  ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
+                  : "text-gray-400 hover:text-white bg-transparent"
+              }`}
+            >
+              Certification
+            </button>
+          </div>
+
+          {/* Tombol Panah Kanan */}
           <button
-            onClick={() => setActiveTab("project")}
-            className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
-              activeTab === "project"
-                ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
-                : "text-gray-400 hover:text-white bg-transparent"
-            }`}
+            onClick={handleNextTab}
+            className="p-2 text-gray-500 hover:text-[#C6FF00] bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 focus:outline-none"
+            aria-label="Next Tab"
           >
-            Project
-          </button>
-
-          <div className="w-[2px] h-4 md:h-6 bg-gray-500 mx-1 rounded-full"></div>
-
-          <button
-            onClick={() => setActiveTab("certification")}
-            className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
-              activeTab === "certification"
-                ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
-                : "text-gray-400 hover:text-white bg-transparent"
-            }`}
-          >
-            Certification
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
           </button>
         </div>
 
@@ -415,7 +479,6 @@ export default function Home() {
             <>
               {/* Card Sertifikasi 1 */}
               <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
-                {/* 2. UPDATE: Tambahkan cursor-zoom-in dan onClick pada container gambar */}
                 <div
                   className="w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-gray-100 border border-gray-200 cursor-zoom-in relative"
                   onClick={() =>
@@ -440,7 +503,6 @@ export default function Home() {
 
               {/* Card Sertifikasi 2 */}
               <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
-                {/* Tambahkan cursor-zoom-in dan onClick pada container gambar */}
                 <div
                   className="w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-gray-100 border border-gray-200 cursor-zoom-in relative"
                   onClick={() =>
@@ -451,6 +513,7 @@ export default function Home() {
                 >
                   <img
                     src="https://i.ibb.co.com/G3GWjF7N/DAMC-zaidanersya90gmail-com-DAMC-170826-01-1-00229-page-0001.jpg"
+                    alt="Sertifikat 2"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 relative z-10"
                   />
                 </div>
@@ -464,7 +527,6 @@ export default function Home() {
 
               {/* Card Sertifikasi 3 */}
               <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
-                {/* Tambahkan cursor-zoom-in dan onClick pada container gambar */}
                 <div
                   className="w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-gray-100 border border-gray-200 cursor-zoom-in relative"
                   onClick={() =>
@@ -500,7 +562,7 @@ export default function Home() {
         </footer>
       </div>
 
-      {/* 3. UPDATE: MODAL FULLSCREEN IMAGE (POPUP) */}
+      {/* MODAL FULLSCREEN IMAGE (POPUP) */}
       {fullscreenImage && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 cursor-zoom-out backdrop-blur-sm"

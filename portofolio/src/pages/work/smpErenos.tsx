@@ -32,9 +32,14 @@ export default function SmpErenos() {
 
           <ul className="list-disc list-outside ml-5 text-gray-300 mt-4 mb-8 space-y-2 leading-relaxed text-justify break-words whitespace-normal">
             <li>Merancang antarmuka pengguna yang intuitif dan menarik.</li>
-            <li>Melakukan riset pasar untuk memahami kebutuhan pengguna.</li>
-            <li>Menyusun wireframe dan prototipe untuk iterasi desain.</li>
-            <li>Bekerja sama dengan tim pengembang untuk menerapkan desain.</li>
+            <li>
+              Berkolaborasi dengan tim pengembangan untuk membuat desain website
+              front end yang dibutuhkan SMP Erenos.
+            </li>
+            <li>
+              Membuat desain UI/UX website berdasarkan kebutuhan dan rancangan
+              yang telah ditentukan.
+            </li>
           </ul>
 
           {/* Bagian Link Figma */}

@@ -37,7 +37,10 @@ export default function UPJ() {
               ijazah dan transkrip nilai untuk keperluan kearsipan serta
               pengemasan ijazah.
             </li>
-            <li>Administrasi pengecekan berkas mahasiswa baru.</li>
+            <li>
+              Administrasi dokumen dan pengecekan kelengkapan dokumen berkas
+              mahasiswa baru.
+            </li>
           </ul>
         </div>
 
