@@ -196,21 +196,22 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 4. UPDATE: TAB SWITCHER DENGAN TOMBOL PANAH KIRI & KANAN */}
+        {/* TAB SWITCHER DENGAN TOMBOL PANAH KIRI & KANAN */}
         <div
-          className={`flex items-center justify-center gap-2 md:gap-4 mb-2 mt-2 
+          className={`flex flex-row items-center justify-center gap-1 md:gap-4 mb-2 mt-2 w-full px-1
           transform transition-all duration-1000 delay-500 ease-out
           ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           {/* Tombol Panah Kiri */}
           <button
             onClick={handlePrevTab}
-            className="p-2 text-gray-500 hover:text-[#C6FF00] bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 focus:outline-none"
+            className="p-1.5 md:p-2 flex-shrink-0 text-gray-500 hover:text-[#C6FF00] bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 focus:outline-none"
             aria-label="Previous Tab"
           >
             <svg
-              width="20"
-              height="20"
+              width="18"
+              height="18"
+              className="md:w-5 md:h-5"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -222,11 +223,11 @@ export default function Home() {
             </svg>
           </button>
 
-          {/* Area Tombol Tab */}
-          <div className="flex flex-wrap items-center justify-center gap-1 md:gap-2">
+          {/* Area Menu Tab (Dibuat satu baris dan tidak akan turun ke bawah) */}
+          <div className="flex flex-row items-center justify-center gap-0.5 sm:gap-1 md:gap-2">
             <button
               onClick={() => setActiveTab("experience")}
-              className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+              className={`px-2 md:px-3 py-1 text-[11px] sm:text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap ${
                 activeTab === "experience"
                   ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
                   : "text-gray-400 hover:text-white bg-transparent"
@@ -235,11 +236,11 @@ export default function Home() {
               Work Experience
             </button>
 
-            <div className="w-[2px] h-4 md:h-6 bg-gray-500 mx-1 rounded-full"></div>
+            <div className="w-[1px] md:w-[2px] h-3 md:h-6 bg-gray-500 mx-0.5 sm:mx-1 rounded-full flex-shrink-0"></div>
 
             <button
               onClick={() => setActiveTab("project")}
-              className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+              className={`px-2 md:px-3 py-1 text-[11px] sm:text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap ${
                 activeTab === "project"
                   ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
                   : "text-gray-400 hover:text-white bg-transparent"
@@ -248,11 +249,11 @@ export default function Home() {
               Project
             </button>
 
-            <div className="w-[2px] h-4 md:h-6 bg-gray-500 mx-1 rounded-full"></div>
+            <div className="w-[1px] md:w-[2px] h-3 md:h-6 bg-gray-500 mx-0.5 sm:mx-1 rounded-full flex-shrink-0"></div>
 
             <button
               onClick={() => setActiveTab("certification")}
-              className={`px-3 py-1 text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+              className={`px-2 md:px-3 py-1 text-[11px] sm:text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap ${
                 activeTab === "certification"
                   ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
                   : "text-gray-400 hover:text-white bg-transparent"
@@ -265,12 +266,13 @@ export default function Home() {
           {/* Tombol Panah Kanan */}
           <button
             onClick={handleNextTab}
-            className="p-2 text-gray-500 hover:text-[#C6FF00] bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 focus:outline-none"
+            className="p-1.5 md:p-2 flex-shrink-0 text-gray-500 hover:text-[#C6FF00] bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 focus:outline-none"
             aria-label="Next Tab"
           >
             <svg
-              width="20"
-              height="20"
+              width="18"
+              height="18"
+              className="md:w-5 md:h-5"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
