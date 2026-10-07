@@ -467,7 +467,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Link
-                  href="/project/DataVisual"
+                  href="/project/DataVisualisasi"
                   className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
                 >
                   Detail
