@@ -1,0 +1,21 @@
+Next.js PortfolioRepositori ini berisi kode sumber untuk web portofolio pribadi yang dibangun menggunakan framework Next.js. Website ini dirancang untuk menampilkan profil, proyek-proyek yang pernah dikerjakan, keahlian, serta informasi kontak secara interaktif dan responsif.🛠️ Fitur UtamaPerformance & SEO Friendly: Menggunakan fitur Server-Side Rendering (SSR) / Static Site Generation (SSG) bawaan Next.js.Desain Responsif: Tampilan yang optimal di perangkat mobile, tablet, maupun desktop.Komponen Modular: Dibangun dengan arsitektur komponen React yang bersih dan mudah dirawat.Fast Refresh: Pengalaman pengembangan lokal yang cepat.🚀 Teknologi yang DigunakanFramework: Next.jsLibrary UI: ReactStyling: Tailwind CSS / CSS Modules (sesuaikan dengan yang digunakan)Deployment: Vercel💻 Cara Menjalankan Proyek secara LokalPRASYARATPastikan Anda sudah menginstal Node.js (versi 18.x atau lebih baru) dan npm/yarn/pnpm di komputer Anda.LANGKAH-LANGKAHClone repositori ini:git clone https://github.com/ImZard/profil.git
+cd profil
+Instal dependensi:npm install
+# atau
+yarn install
+# atau
+pnpm install
+Jalankan server pengembangan:npm run dev
+# atau
+yarn dev
+# atau
+pnpm dev
+Buka di browser:Buka http://localhost:3000 untuk melihat hasilnya.📁 Struktur Proyek (Ringkasan)profil/
+├── public/          # File statis (gambar, favicon, dll)
+├── src/
+│   ├── app/         # App Router Next.js (atau pages/ jika menggunakan Pages Router)
+│   ├── components/  # Komponen React yang reusable
+│   └── styles/      # File gaya / CSS global
+├── package.json
+└── README.md
+📄 LisensiProyek ini menggunakan lisensi MIT. Silakan gunakan dan sesuaikan sesuai kebutuhan Anda.
