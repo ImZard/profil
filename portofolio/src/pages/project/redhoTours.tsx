@@ -37,8 +37,8 @@ export default function RedhoTours() {
               penyelesaian operasional.
             </li>
             <li>
-              System Analyst(Use Case Diagram, Class Diagram, Sequence Diagram,
-              Activity Diagram).
+              System Analyst(Flowchart, Use Case Diagram, Class Diagram,
+              Sequence Diagram, Activity Diagram, Class Diagram).
             </li>
             <li>
               Mengembangkan aplikasi web menggunakan Next.Js dan Supabase

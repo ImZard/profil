@@ -73,6 +73,21 @@ export default function Pbsi() {
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out relative z-10"
             />
           </div>
+
+          {/* Gambar 3 (Sekarang dimasukkan ke dalam Grid agar ukurannya sama persis) */}
+          <div
+            className="w-full h-72 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#141419] group flex items-center justify-center relative cursor-zoom-in"
+            onClick={() =>
+              setFullscreenImage("https://i.ibb.co.com/C5d2g4Dh/wasit.png")
+            }
+          >
+            <span className="text-gray-500 absolute">Gambar Dokumentasi 3</span>
+            <img
+              src="https://i.ibb.co.com/C5d2g4Dh/wasit.png"
+              alt="Dokumentasi PBSI 3"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out relative z-10"
+            />
+          </div>
         </div>
       </div>
 
