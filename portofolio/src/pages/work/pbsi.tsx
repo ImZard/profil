@@ -74,7 +74,7 @@ export default function Pbsi() {
             />
           </div>
 
-          {/* Gambar 3 (Sekarang dimasukkan ke dalam Grid agar ukurannya sama persis) */}
+          {/* Gambar 3*/}
           <div
             className="w-full h-72 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#141419] group flex items-center justify-center relative cursor-zoom-in"
             onClick={() =>
