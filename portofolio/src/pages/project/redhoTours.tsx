@@ -95,6 +95,72 @@ export default function RedhoTours() {
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out relative z-10"
             />
           </div>
+
+          {/* Gambar 3 */}
+          <div
+            className="w-full h-72 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#141419] group flex items-center justify-center relative cursor-zoom-in"
+            onClick={() =>
+              setFullscreenImage(
+                "https://i.ibb.co.com/S4xzLFFg/class-diagram-drawio.png",
+              )
+            }
+          >
+            <span className="text-gray-500 absolute">Gambar Dokumentasi 3</span>
+            <img
+              src="https://i.ibb.co.com/S4xzLFFg/class-diagram-drawio.png"
+              alt="Dokumentasi Redho Tours 3"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out relative z-10"
+            />
+          </div>
+
+          {/* Gambar 4 */}
+          <div
+            className="w-full h-72 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#141419] group flex items-center justify-center relative cursor-zoom-in"
+            onClick={() =>
+              setFullscreenImage(
+                "https://i.ibb.co.com/1f8hG3Db/Activity-Diagram-Pemesanan-drawio.png",
+              )
+            }
+          >
+            <span className="text-gray-500 absolute">Gambar Dokumentasi 4</span>
+            <img
+              src="https://i.ibb.co.com/1f8hG3Db/Activity-Diagram-Pemesanan-drawio.png"
+              alt="Dokumentasi Redho Tours 4"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out relative z-10"
+            />
+          </div>
+
+          {/* Gambar 5 */}
+          <div
+            className="w-full h-72 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#141419] group flex items-center justify-center relative cursor-zoom-in"
+            onClick={() =>
+              setFullscreenImage(
+                "https://i.ibb.co.com/wh2dN8vZ/flow-sistem-sedang-berjalan-drawio.png",
+              )
+            }
+          >
+            <span className="text-gray-500 absolute">Gambar Dokumentasi 5</span>
+            <img
+              src="https://i.ibb.co.com/wh2dN8vZ/flow-sistem-sedang-berjalan-drawio.png"
+              alt="Dokumentasi Redho Tours 5"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out relative z-10"
+            />
+          </div>
+
+          {/* Gambar 6 */}
+          <div
+            className="w-full h-72 rounded-xl overflow-hidden border border-white/10 shadow-lg bg-[#141419] group flex items-center justify-center relative cursor-zoom-in"
+            onClick={() =>
+              setFullscreenImage("https://i.ibb.co.com/nq2gnJXs/Use-Case.png")
+            }
+          >
+            <span className="text-gray-500 absolute">Gambar Dokumentasi 6</span>
+            <img
+              src="https://i.ibb.co.com/nq2gnJXs/Use-Case.png"
+              alt="Dokumentasi Redho Tours 6"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out relative z-10"
+            />
+          </div>
         </div>
       </div>
 
