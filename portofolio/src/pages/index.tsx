@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-// 1. UPDATE: Daftar urutan tab untuk navigasi tombol Next/Prev
+// Daftar urutan tab untuk navigasi tombol Next/Prev
 const TABS: ("experience" | "project" | "certification")[] = [
   "experience",
   "project",
@@ -25,14 +25,14 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  // 2. UPDATE: Fungsi untuk tombol panah KIRI (Previous)
+  // Fungsi untuk tombol panah KIRI (Previous)
   const handlePrevTab = () => {
     const currentIndex = TABS.indexOf(activeTab);
     const prevIndex = currentIndex === 0 ? TABS.length - 1 : currentIndex - 1;
     setActiveTab(TABS[prevIndex]);
   };
 
-  // 3. UPDATE: Fungsi untuk tombol panah KANAN (Next)
+  // Fungsi untuk tombol panah KANAN (Next)
   const handleNextTab = () => {
     const currentIndex = TABS.indexOf(activeTab);
     const nextIndex = currentIndex === TABS.length - 1 ? 0 : currentIndex + 1;
@@ -40,11 +40,18 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#111115] flex flex-col items-center py-10 px-4 selection:bg-[#C6FF00] selection:text-black overflow-hidden relative">
-      <div className="w-full max-w-4xl flex flex-col gap-8">
+    <div className="min-h-screen flex flex-col items-center py-10 px-4 selection:bg-[#C6FF00] selection:text-black overflow-hidden relative z-0">
+      {/* BACKGROUND WARNA GRADASI & GLOW */}
+      <div className="fixed inset-0 z-[-1] bg-gradient-to-br from-[#111115] via-[#1a1a24] to-[#252f00]"></div>
+
+      {/* Efek pendaran cahaya (glow) melingkar di tengah atas */}
+      <div className="fixed top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#C6FF00]/10 rounded-full blur-[120px] z-[-1] pointer-events-none"></div>
+
+      {/* Kontainer Utama (ditambahkan z-10 agar berada di atas background) */}
+      <div className="w-full max-w-4xl flex flex-col gap-8 relative z-10">
         {/* SECTION ATAS: PROFIL & BIOGRAFI */}
         <div
-          className={`w-full relative bg-[#111115] p-6 md:p-10 border border-white/5 shadow-xl rounded-2xl group hover:border-white/10 
+          className={`w-full relative bg-[#111115]/80 backdrop-blur-sm p-6 md:p-10 border border-white/5 shadow-xl rounded-2xl group hover:border-white/10 
           transform transition-all duration-1000 ease-out
           ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
         >
@@ -76,14 +83,14 @@ export default function Home() {
 
         {/* SECTION MY SKILLS */}
         <div
-          className={`bg-[#1B1B22] px-6 py-6 md:px-8 rounded-2xl border border-white/5 flex flex-col gap-4 shadow-lg 
+          className={`bg-[#1B1B22]/90 backdrop-blur-sm px-6 py-6 md:px-8 rounded-2xl border border-white/5 flex flex-col gap-4 shadow-lg 
           transform transition-all duration-1000 delay-300 ease-out
           ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
         >
           <span className="text-lg md:text-xl font-bold tracking-wider text-white text-center border-b border-white/10 pb-4">
             My Skills
           </span>
-          <div className="bg-[#141419] border border-white/10 rounded-xl p-5 md:p-6">
+          <div className="bg-[#141419]/90 border border-white/10 rounded-xl p-5 md:p-6">
             <ul className="list-disc list-outside ml-5 text-gray-300 space-y-3 md:space-y-4 text-sm md:text-base leading-relaxed text-justify break-words whitespace-normal">
               <li>
                 <span className="font-semibold text-white">
@@ -121,14 +128,14 @@ export default function Home() {
 
         {/* SECTION CONNECT WITH ME */}
         <div
-          className={`bg-[#1B1B22] px-8 py-6 rounded-2xl border border-white/5 flex flex-col items-center gap-4 shadow-lg 
+          className={`bg-[#1B1B22]/90 backdrop-blur-sm px-8 py-6 rounded-2xl border border-white/5 flex flex-col items-center gap-4 shadow-lg 
           transform transition-all duration-1000 delay-200 ease-out
           ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
         >
           <span className="text-sm md:text-base font-semibold tracking-wider text-gray-300 text-center">
             Connect With Me :
           </span>
-          <div className="w-full flex items-center justify-center gap-8 bg-[#141419] border border-white/10 rounded-xl px-4 py-4">
+          <div className="w-full flex items-center justify-center gap-8 bg-[#141419]/90 border border-white/10 rounded-xl px-4 py-4">
             <a
               href="https://www.instagram.com/zard_90/"
               target="_blank"
@@ -198,7 +205,7 @@ export default function Home() {
 
         {/* TAB SWITCHER DENGAN TOMBOL PANAH KIRI & KANAN */}
         <div
-          className={`flex flex-row items-center justify-center gap-1 md:gap-4 mb-2 mt-2 w-full px-1
+          className={`flex flex-nowrap items-center justify-center gap-1 sm:gap-2 md:gap-4 mb-2 mt-2 w-full px-1
           transform transition-all duration-1000 delay-500 ease-out
           ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
@@ -223,11 +230,11 @@ export default function Home() {
             </svg>
           </button>
 
-          {/* Area Menu Tab (Dibuat satu baris dan tidak akan turun ke bawah) */}
-          <div className="flex flex-row items-center justify-center gap-0.5 sm:gap-1 md:gap-2">
+          {/* Area Menu Tab */}
+          <div className="flex flex-nowrap items-center justify-center gap-0.5 sm:gap-1 md:gap-2">
             <button
               onClick={() => setActiveTab("experience")}
-              className={`px-2 md:px-3 py-1 text-[11px] sm:text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap ${
+              className={`px-1.5 md:px-3 py-1 text-[10px] min-[375px]:text-[11px] sm:text-sm md:text-lg font-bold rounded-md transition-all duration-300 flex-shrink-0 whitespace-nowrap ${
                 activeTab === "experience"
                   ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
                   : "text-gray-400 hover:text-white bg-transparent"
@@ -236,11 +243,11 @@ export default function Home() {
               Work Experience
             </button>
 
-            <div className="w-[1px] md:w-[2px] h-3 md:h-6 bg-gray-500 mx-0.5 sm:mx-1 rounded-full flex-shrink-0"></div>
+            <div className="w-[1px] md:w-[2px] h-3 md:h-6 bg-gray-500 mx-0.5 flex-shrink-0"></div>
 
             <button
               onClick={() => setActiveTab("project")}
-              className={`px-2 md:px-3 py-1 text-[11px] sm:text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap ${
+              className={`px-1.5 md:px-3 py-1 text-[10px] min-[375px]:text-[11px] sm:text-sm md:text-lg font-bold rounded-md transition-all duration-300 flex-shrink-0 whitespace-nowrap ${
                 activeTab === "project"
                   ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
                   : "text-gray-400 hover:text-white bg-transparent"
@@ -249,11 +256,11 @@ export default function Home() {
               Project
             </button>
 
-            <div className="w-[1px] md:w-[2px] h-3 md:h-6 bg-gray-500 mx-0.5 sm:mx-1 rounded-full flex-shrink-0"></div>
+            <div className="w-[1px] md:w-[2px] h-3 md:h-6 bg-gray-500 mx-0.5 flex-shrink-0"></div>
 
             <button
               onClick={() => setActiveTab("certification")}
-              className={`px-2 md:px-3 py-1 text-[11px] sm:text-sm md:text-lg font-bold rounded-md transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap ${
+              className={`px-1.5 md:px-3 py-1 text-[10px] min-[375px]:text-[11px] sm:text-sm md:text-lg font-bold rounded-md transition-all duration-300 flex-shrink-0 whitespace-nowrap ${
                 activeTab === "certification"
                   ? "bg-[#C6FF00] text-[#141419] shadow-[0_0_15px_rgba(198,255,0,0.3)]"
                   : "text-gray-400 hover:text-white bg-transparent"
@@ -294,7 +301,7 @@ export default function Home() {
           {/* --- KONTEN: WORK EXPERIENCE --- */}
           {activeTab === "experience" && (
             <>
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     UI/UX Designer Intern
@@ -317,7 +324,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     CAPI (Computer-Assisted Personal Interviewing) Assistant
@@ -341,7 +348,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     Asisten Biro Pendidikan
@@ -364,7 +371,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     QA Tester
@@ -393,7 +400,7 @@ export default function Home() {
           {/* --- KONTEN: PROJECT --- */}
           {activeTab === "project" && (
             <>
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     PT. Redho Illahi Wisata
@@ -416,7 +423,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     Pengembangan Aplikasi Web Sistem Manajemen Pemesanan
@@ -436,7 +443,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     Front-End Developer (Pengembangan Prototype Platform Edukasi
@@ -455,7 +462,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-6 rounded-2xl shadow-lg min-h-[320px] flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-[#8cb800] transition-colors duration-300">
                     Data Visualization (Everest Data Exploration)
@@ -467,7 +474,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Link
-                  href="/project/DataVisualisasi"
+                  href="/project/dataVisual"
                   className="mt-4 bg-[#C6FF00] text-[#141419] py-2 px-4 rounded-lg hover:bg-[#a8e600] hover:scale-[1.03] active:scale-95 transition-all duration-300 inline-block text-center font-bold"
                 >
                   Detail
@@ -480,7 +487,7 @@ export default function Home() {
           {activeTab === "certification" && (
             <>
               {/* Card Sertifikasi 1 */}
-              <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div
                   className="w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-gray-100 border border-gray-200 cursor-zoom-in relative"
                   onClick={() =>
@@ -504,7 +511,7 @@ export default function Home() {
               </div>
 
               {/* Card Sertifikasi 2 */}
-              <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div
                   className="w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-gray-100 border border-gray-200 cursor-zoom-in relative"
                   onClick={() =>
@@ -528,7 +535,7 @@ export default function Home() {
               </div>
 
               {/* Card Sertifikasi 3 */}
-              <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300">
+              <div className="bg-white text-black p-4 rounded-2xl shadow-lg flex flex-col group hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(198,255,0,0.15)] transition-all duration-300 relative z-10">
                 <div
                   className="w-full h-48 md:h-56 rounded-lg overflow-hidden mb-4 bg-gray-100 border border-gray-200 cursor-zoom-in relative"
                   onClick={() =>
@@ -590,7 +597,7 @@ export default function Home() {
           </button>
 
           <img
-            src={fullscreenImage}
+            src={fullscreenImage || ""}
             alt="Fullscreen Sertifikat"
             className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
           />
