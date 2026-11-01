@@ -108,7 +108,8 @@ export default function Home() {
                 <span className="font-semibold text-white">
                   QA Testing & Software :
                 </span>{" "}
-                Manual Testing, Automated Testing, Test Case Design, Selenium
+                Manual Testing, Automated Testing (Selenium & Postman), Test
+                Case Design, Selenium
               </li>
               <li>
                 <span className="font-semibold text-white">
