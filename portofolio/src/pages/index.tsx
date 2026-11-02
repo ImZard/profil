@@ -39,18 +39,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col items-center py-12 px-6 selection:bg-[#C6FF00] selection:text-black overflow-hidden relative z-0 text-white">
-      {/* ========================================= */}
-      {/* BACKGROUND GAMBAR & OVERLAY */}
-      {/* ========================================= */}
-      {/* 1. Gambar Background */}
+      {/* Gambar Background */}
       <div
         className="fixed inset-0 z-[-2] bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/background.jpg')" }}
       ></div>
-      {/* 2. Overlay Gelap + Blur tipis agar teks tetap terbaca jelas */}
+      {/*Overlay Gelap + Blur tipis agar teks tetap terbaca jelas */}
       <div className="fixed inset-0 z-[-1] bg-[#0a0a0a]/85 backdrop-blur-[2px]"></div>
-
-      {/* Kontainer Utama */}
 
       {/* Kontainer Utama */}
       <div className="w-full max-w-5xl flex flex-col gap-12 relative z-10">
@@ -289,7 +284,7 @@ export default function Home() {
                   : "text-gray-400 hover:text-white bg-transparent"
               }`}
             >
-              Experience
+              Work Experience
             </button>
             <button
               onClick={() => setActiveTab("project")}
@@ -639,7 +634,7 @@ export default function Home() {
                   </p>
                 </div>
                 <Link
-                  href="/project/dataVisual"
+                  href="/project/DataVisualisasi"
                   className="mt-6 border border-white/20 text-white py-2 px-4 rounded-lg group-hover:bg-[#C6FF00] group-hover:text-black group-hover:border-[#C6FF00] transition-all duration-300 inline-flex items-center justify-between font-semibold text-sm"
                 >
                   View Detail
