@@ -222,7 +222,7 @@ export default function Home() {
         {/* Indikator Scroll Down - FIX: Diberi mt-8 dan min-h-[60px] agar memaksa jarak dari atasnya */}
         <div className="flex-1 w-full flex flex-col justify-end items-center mt-10 min-h-[60px]">
           <div className="animate-bounce text-white/50 flex flex-col items-center gap-1.5 text-[10px] md:text-xs font-medium tracking-widest uppercase mt-4">
-            <span>Scroll Kebawah</span>
+            <span>Scroll Down</span>
             <svg
               width="18"
               height="18"
